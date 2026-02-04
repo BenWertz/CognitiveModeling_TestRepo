@@ -1,1 +1,1 @@
-Test repository for Cognitive Modeling HW #1
+## Ben Wertz and Victor Angielczyk's Cognitive Modeling Repository!
