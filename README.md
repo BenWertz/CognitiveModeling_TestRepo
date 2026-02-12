@@ -43,14 +43,29 @@ The .gitignore file in a Git repository is used to specify files that should not
 - Heat diffusion / temperature spread (given an initial temperature and material properties, predict temperature over time) (easier: just steping forward in time, but can get harder if you want high detail).
 
 ## Problem 3: Git and GitHub
-
+### 1
 - https://github.com/BenWertz/CognitiveModeling_TestRepo
-
+### 2
 ![merge conflict](images/merge-conflict.png)
 
 ![diff](images/diff.png)
 
 ![deconflicted](images/deconflicted.png)
+
+### 3
+
+- a) git restore discards local changes in files (restores them back to what Git last had).
+- b) git checkout switches to another branch (or commit).
+- c) git reset moves HEAD to another commit (often used to unstage or undo commits).
+- d) git revert makes a new commit that undoes an earlier commit.
+
+### 4
+
+| Command | Affects Commit History? | Affects Staging Area? | Affects Working Directory? | Typical Use Case |
+|---|---|---|---|---|
+| `git reset` | Yes | Yes | Sometimes (depends on flags) | Undo local commits / unstage changes |
+| `git restore` | No | Sometimes (`--staged`) | Yes | Discard file changes / unstage a file |
+| `git rm` | No | Yes | Yes | Delete a tracked file |
 
 ## Problem 4: Python and NumPy
 
