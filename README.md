@@ -1,6 +1,8 @@
 ![Sierpinski triangle on black background with text 'Test :O' hastily written on it](images/LOGO.png)
 
-Test repository for Cognitive Modeling HW #1
+# Test repository for Cognitive Modeling HW #1
+
+## Ben Wertz & Victor Angielczyk
 
 ## Problem 1: True-False Questions
 
