@@ -6,60 +6,55 @@
 
 ## Problem 1: True-False Questions
 
-Stochastic models will always produce the same output x given the same input parameters θ.
-**FALSE** (need to include random parameters )
-
-In psychology, replicability refers to obtaining consistent results using the same data and analysis methods, while reproducibility refers to obtaining consistent results by conducting a new study with different data under similar conditions.
-**FALSE** (it’s the other away around)
-
-In Python, the expression 5 + "5" will result in a TypeError.
-**TRUE**
-
-The git rebase command is used to squash commits in the history, but it cannot be used to reapply commits on top of a different base branch.
-**FALSE** (reapplying commits on top of a different base branch is what git rebase does)
-
-A detached HEAD state in Git means you are no longer on any branch and cannot commit changes until you switch back to a branch.
-**FALSE** (you can still commit, but you’re not on a branch)
-
-Function arguments in Python are passed by reference, meaning that modifying a mutable object within a function will also modify it outside the function scope.
-**FALSE** (Python passes object references; mutating works, rebinding doesn’t)
-
-Using the is operator in Python checks for value equality, similar to the == operator.
-**FALSE** (is checks for reference equality)
-
-The .gitignore file in a Git repository is used to specify files that should not be tracked by Git and cannot be overridden by a user.
-**FALSE** (.gitignore is overridable by the user)
+1. Stochastic models will always produce the same output x given the same input parameters θ.
+    - **FALSE** (need to include random parameters )
+2. In psychology, replicability refers to obtaining consistent results using the same data and analysis methods, while reproducibility refers to obtaining consistent results by conducting a new study with different data under similar conditions.
+    - **FALSE** (it’s the other away around)
+3. In Python, the expression 5 + "5" will result in a TypeError.
+    - **TRUE**
+4. The git rebase command is used to squash commits in the history, but it cannot be used to reapply commits on top of a different base branch.
+    - **FALSE** (reapplying commits on top of a different base branch is what git rebase does)
+5. A detached HEAD state in Git means you are no longer on any branch and cannot commit changes until you switch back to a branch.
+    - **FALSE** (you can still commit, but you’re not on a branch)
+6. Function arguments in Python are passed by reference, meaning that modifying a mutable object within a function will also modify it outside the function scope.
+    - **FALSE** (Python passes object references; mutating works)
+7. Using the is operator in Python checks for value equality, similar to the == operator.
+    - **FALSE** (is checks for reference equality)
+8. The .gitignore file in a Git repository is used to specify files that should not be tracked by Git and cannot be overridden by a user.
+    - **FALSE** (.gitignore is overridable by the user)
 
 ## Problem 2: Inverse vs. Forward Problems
 
-#### Inverse problems:
+### Inverse problems
 - Inverse kinematics in robotics (for example, finding the joint angles to move the end effector of a robot arm to a desired position+orientation) (harder: usually needs searching/iteration, and there can be multiple solutions).
 - Inferring the transmission rats, average recovery times, etc. for an epidemic given observations of susceptible, infected, exposed, recovered, etc. people over time (harder: you keep re-running the model while tweaking parameters to match data).
 - Sentiment analysis (predicting a person’s emotional state from eg. a product review) (medium: fast once the model is trained, but training can take a lot of compute and data).
 
-#### Forward problems:
+### Forward problems
 - Modeling infected population over time given a set of initial conditions (SEIR from lecture). (easier: just run the equations forward).
 - Projectile motion / trajectory prediction (given initial position/velocity and gravity, predict where the object will be over time) (easier: direct computation).
 - Heat diffusion / temperature spread (given an initial temperature and material properties, predict temperature over time) (easier: just steping forward in time, but can get harder if you want high detail).
 
 ## Problem 3: Git and GitHub
-### 1
+
+### Part 1
 - https://github.com/BenWertz/CognitiveModeling_TestRepo
-### 2
+
+### Part 2
 ![merge conflict](images/merge-conflict.png)
 
 ![diff](images/diff.png)
 
 ![deconflicted](images/deconflicted.png)
 
-### 3
+### Part 3
 
 - a) git restore discards local changes in files (restores them back to what Git last had).
 - b) git checkout switches to another branch (or commit).
 - c) git reset moves HEAD to another commit (often used to unstage or undo commits).
 - d) git revert makes a new commit that undoes an earlier commit.
 
-### 4
+### Part 4
 
 | Command | Affects Commit History? | Affects Staging Area? | Affects Working Directory? | Typical Use Case |
 |---|---|---|---|---|
@@ -134,4 +129,4 @@ print(pi_est)
 ## Problem 5
 
 - https://github.com/VictorAngielczyk/CognitiveModeling-HW1-SEIR
-- [CognitiveModeling-HW1-SEIR.zip](CognitiveModeling-HW1-SEIR.zip)
+- [CognitiveModeling-HW1-SEIR.zip](downloads/CognitiveModeling-HW1-SEIR.zip)
