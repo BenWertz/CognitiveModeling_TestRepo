@@ -1,1 +1,1 @@
-This text will conflict. Just a bit different now.
+This is the branch that will cause a conflict when merged with the main branch.
