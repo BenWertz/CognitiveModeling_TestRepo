@@ -4,36 +4,43 @@
 
 ## Ben Wertz & Victor Angielczyk
 
+
 ## Problem 1: True-False Questions
 
-1. Stochastic models will always produce the same output x given the same input parameters θ.
-    - **FALSE** (need to include random parameters )
+1. Stochastic models will always produce the same output x given the same input parameters $\theta$.
+    - **FALSE** (need to include random parameters $\xi$)
 2. In psychology, replicability refers to obtaining consistent results using the same data and analysis methods, while reproducibility refers to obtaining consistent results by conducting a new study with different data under similar conditions.
     - **FALSE** (it’s the other away around)
-3. In Python, the expression 5 + "5" will result in a TypeError.
+3. In Python, the expression `5 + "5"` will result in a TypeError.
     - **TRUE**
-4. The git rebase command is used to squash commits in the history, but it cannot be used to reapply commits on top of a different base branch.
-    - **FALSE** (reapplying commits on top of a different base branch is what git rebase does)
+4. The `git rebase` command is used to squash commits in the history, but it cannot be used to reapply commits on top of a different base branch.
+    - **FALSE** (reapplying commits on top of a different base branch is what `git rebase` does)
 5. A detached HEAD state in Git means you are no longer on any branch and cannot commit changes until you switch back to a branch.
     - **FALSE** (you can still commit, but you’re not on a branch)
 6. Function arguments in Python are passed by reference, meaning that modifying a mutable object within a function will also modify it outside the function scope.
     - **FALSE** (Python passes object references; mutating works)
-7. Using the is operator in Python checks for value equality, similar to the == operator.
-    - **FALSE** (is checks for reference equality)
-8. The .gitignore file in a Git repository is used to specify files that should not be tracked by Git and cannot be overridden by a user.
-    - **FALSE** (.gitignore is overridable by the user)
+7. Using the `is` operator in Python checks for value equality, similar to the `==` operator.
+    - **FALSE** (`is` checks for reference equality, `==` checks for value equality)
+8. The `.gitignore` file in a Git repository is used to specify files that should not be tracked by Git and cannot be overridden by a user.
+    - **FALSE** (`.gitignore` is overridable by the user)
 
 ## Problem 2: Inverse vs. Forward Problems
 
 ### Inverse problems
-- Inverse kinematics in robotics (for example, finding the joint angles to move the end effector of a robot arm to a desired position+orientation) (harder: usually needs searching/iteration, and there can be multiple solutions).
-- Inferring the transmission rats, average recovery times, etc. for an epidemic given observations of susceptible, infected, exposed, recovered, etc. people over time (harder: you keep re-running the model while tweaking parameters to match data).
-- Sentiment analysis (predicting a person’s emotional state from eg. a product review) (medium: fast once the model is trained, but training can take a lot of compute and data).
+- Inverse kinematics in robotics (for example, finding the joint parameters to move the end effector of a robot arm to a desired position/orientation) 
+    - (harder: usually needs searching/iteration, and there can be multiple solutions).
+- Inferring the transmission rates, average recovery times, etc. for an epidemic given observations of susceptible, infected, exposed, recovered, etc. people over time
+    - (harder: you keep re-running the model while tweaking parameters to match data. An Bayesian MCMC process might be used to infer the model parameters, but in practice this could become very complicated).
+- Sentiment analysis (predicting a person’s emotional state from eg. a product review)
+    - (medium: fast once the model is trained, but training can take a lot of compute and data).
 
 ### Forward problems
-- Modeling infected population over time given a set of initial conditions (SEIR from lecture). (easier: just run the equations forward).
-- Projectile motion / trajectory prediction (given initial position/velocity and gravity, predict where the object will be over time) (easier: direct computation).
-- Heat diffusion / temperature spread (given an initial temperature and material properties, predict temperature over time) (easier: just steping forward in time, but can get harder if you want high detail).
+- Modeling infected population over time given a set of initial conditions (SEIR from lecture).
+    - (easier: just run the equations of the SEIR model forward in time numerically).
+- Projectile motion / trajectory prediction (given initial position/velocity and gravity, predict where the object will be over time)
+    - (easier: direct computation, usually no more complex than solving a system of ODEs using finite-difference methods).
+- Heat diffusion / temperature spread (given an initial temperature and material properties, predict temperature over time)
+    - (medium: Requires numerically solving a PDE (the heat equation), and finite-element methods used to simulate heat transfer in irregularly-shaped objects can get pretty complicated. Some scenarios will require an implicit methods which require multiple iterations to converge or require inverting large matrices which is inefficient).
 
 ## Problem 3: Git and GitHub
 
