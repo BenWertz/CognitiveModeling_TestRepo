@@ -45,7 +45,9 @@
 ## Problem 3: Git and GitHub
 
 ### Part 1
+Cogntiive modeling is critical to modern psychology and cog. science research because developing new theories in these fields is fundamentally difficult. Trying to understand the 'true' explanations for human behavior studied by psychologists, or even the lower-level(?) processes studied by cognitive scientists, is essentially an unsolvable problem because brains are too complex. In the face of issues like the replication crisis, psychology and cognitive science are trying to move towards studying models that can be assessed computationally and that are less subject to confirmation bias ('model optimism'). The statistical techniques developed in cognitive modeling is applicable to these problems, and provides a pathway to developing models in a way that can better approximate what might be happening internally in a mind.
 - https://github.com/BenWertz/CognitiveModeling_TestRepo
+
 
 ### Part 2
 ![merge conflict](images/merge-conflict.png)
