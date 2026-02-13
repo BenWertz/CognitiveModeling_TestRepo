@@ -129,4 +129,4 @@ print(pi_est)
 ## Problem 5
 
 - https://github.com/VictorAngielczyk/CognitiveModeling-HW1-SEIR
-- [CognitiveModeling-HW1-SEIR.zip](downloads/CognitiveModeling-HW1-SEIR.zip)
+- [CognitiveModeling-HW1-SEIR.zip](CognitiveModeling-HW1-SEIR.zip)
