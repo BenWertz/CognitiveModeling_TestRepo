@@ -1,0 +1,6 @@
+name: test_repo
+dependencies:
+  - python>=3.9
+  - numpy
+  - typing
+  - matplotlib
