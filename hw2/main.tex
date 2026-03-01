@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Course: \underline{Cognitive Modeling}}
+\chead{Homework \#\underline{2}}
+\rhead{Name: \underline{BW, VMA}}
+\cfoot{\thepage}
+
+\title{Cognitive Modeling Homework 2}
+\author{\underline{Ben Wertz, Victor M. Angielczyk}}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\section*{Problem 1}
+True-False Questions (4 points). Mark all statements which are FALSE.
+\begin{enumerate}
+\item \textcolor{red}{A random variable is discrete if its support is countable and there exists an associated probability density function (pdf).}\\
+  \hspace*{1em}\textit{False:} A discrete random variable has a pmf, not a pdf.
+\item Probability mass functions have a lower bound of 0 and an upper bound of 1.
+\item \textcolor{red}{The set of all possible realizations of a random variable is called its probability density.}\\
+  \hspace*{1em}\textit{False:} The set of all possible realizations is the support of the random variable.
+\item \textcolor{red}{The expected value of a discrete random variable is always part of its support, that is, $E[X] \in R_X$.}\\
+  \hspace*{1em}\textit{False:} The expectation doesn't need to be in the support. Example: if $X \in \{0,1\}$ with $P(X=1)=1/2$, then $E[X]=1/2 \notin \{0,1\}$.
+\item Continuous random variables are functions which map points from the sample space to the real numbers.
+\item \textcolor{red}{We can formulate most parametric Bayesian models as a generative process, by which we first sample from the likelihood and then use the synthetic data point to sample from the prior.}\\
+  \hspace*{1em}\textit{False:} In a Bayesian generative story you typically sample from the prior first (get $\theta$), then sample data from the likelihood $p(y\mid \theta)$.
+\item \textcolor{red}{The Bayesian posterior $p(\theta \mid y)$ for continuous parameter vectors $\theta \in R^D$ is just another density function. That means, its integral $\int p(\theta \mid Y = y)\, d\theta \ne 1$ for some $y$.}\\
+  \hspace*{1em}\textit{False:} A posterior density $p(\theta\mid y)$ integrates to 1: $\int p(\theta\mid y)\,d\theta=1$.
+\item Each realization of a continuous random variable has a probability of zero.
+\end{enumerate}
+\newpage
+
+\section*{Problem 2}
+  \[
+  P(\text{up})=0.8,\qquad P(\text{down})=0.2
+  \]
+
+  \[
+  G=
+  \begin{cases}
+  1.01, & \text{with prob. }P(\text{up})\\
+  0.90, & \text{with prob. }P(\text{down})
+  \end{cases}
+  \]
+
+  \[
+  \mathbb{E}[G]=0.8(1.01)+0.2(0.90)=0.808+0.18=0.988
+  \]
+  \[
+  \mathbb{E}[\text{return}]=\mathbb{E}[G]-1=0.988-1=-0.012
+  \]
+
+  \[
+  \text{Break-even: }\;
+  1=P(\text{up})\cdot 1.01+\bigl(1-P(\text{up})\bigr)\cdot 0.90
+  \]
+  \[
+  1=1.01x+(1-x)0.90=0.11x+0.90
+  \quad\Longrightarrow\quad
+  0.10=0.11x
+  \quad\Longrightarrow\quad
+  x=\frac{0.10}{0.11}=\frac{10}{11}
+  \]
+
+  \[
+  \text{To have positive expected return: }\;
+  P(\text{up})>\frac{10}{11}.
+  \]
+\textbf{Notes on expectation values in single-shot decision-making:}\\
+
+    As mentioned in Problem 1, the expectation value of a random variable is not necessarily part of its support. In general, that means that planning around a random event using its expectation value can be misleading because the expectation is not (and may be very different from) what will actually happen. For example, if a self-driving car sees an deer on the road, and estimates a 80\% chance of avoiding it by steering right (in which case the car needs to swerve $3^\circ$ right by the time it reaches the animal's position) and a 20\% chance of it needing to steer left (in which case it needs to steer $12^\circ$ to the left), it would calculate an expectation value for the amount it should swerve to be $0^\circ$, and would drive in a straight line, failing to avoid the animal at all, where the correct decision might have been to slow down and wait for it to move. In these types of problems, where the decisions require conflicting responses, making an optimal decision may require making a decision that responds adequately to multiple possible scenarios rather than just considering the expectation value.
+
+\newpage
+\section*{Problem 3}
+\begin{enumerate}[label=(\alph*)]
+\item
+  \[
+  \operatorname{Var}(X)=\mathbb{E}[X^2]-\big(\mathbb{E}[X]\big)^2
+  \]
+
+  \[
+  \text{Let }X\sim \mathrm{Uniform}(a,b).
+  \]
+
+  \begin{align*}
+  \mathbb{E}[X] &= \frac{a+b}{2},\\
+  \big(\mathbb{E}[X]\big)^2 &= \frac{(a+b)^2}{4},\\[6pt]
+  \mathbb{E}[X^2] &= \frac{1}{b-a}\int_a^b x^2\,dx,\\
+  &= \frac{1}{b-a}\left[\frac{x^3}{3}\right]_a^b,\\
+  &= \frac{b^3-a^3}{3(b-a)}.
+  \end{align*}
+
+  \begin{align*}
+  \mathbb{E}[X^2]-\big(\mathbb{E}[X]\big)^2
+  &= \frac{b^3-a^3}{3(b-a)}-\frac{(a+b)^2}{4}\\
+  &= \frac{(b-a)(a^2+ab+b^2)}{3(b-a)}-\frac{a^2+2ab+b^2}{4}\\
+  &= \frac{a^2+ab+b^2}{3}-\frac{a^2+2ab+b^2}{4}\\
+  &= \frac{4(a^2+ab+b^2)-3(a^2+2ab+b^2)}{12}\\
+  &= \frac{a^2-2ab+b^2}{12}
+  = \frac{(b-a)^2}{12}.
+  \end{align*}
+\item
+  \[
+  \text{Show that }\operatorname{Var}(\alpha X+\beta)=\alpha^2\operatorname{Var}(X).
+  \]
+
+  \begin{align*}
+  \operatorname{Var}(\alpha X+\beta)
+  &= \mathbb{E}\!\left[(\alpha X+\beta)^2\right]-\left(\mathbb{E}[\alpha X+\beta]\right)^2\\
+  &= \mathbb{E}\!\left[\alpha^2X^2+2\alpha\beta X+\beta^2\right]-\left(\alpha\mathbb{E}[X]+\beta\right)^2\\
+  &= \alpha^2\mathbb{E}[X^2]+2\alpha\beta\,\mathbb{E}[X]+\beta^2
+  -\left(\alpha^2(\mathbb{E}[X])^2+2\alpha\beta\,\mathbb{E}[X]+\beta^2\right)\\
+  &= \alpha^2\mathbb{E}[X^2]-\alpha^2(\mathbb{E}[X])^2\\
+  &= \alpha^2\left(\mathbb{E}[X^2]-(\mathbb{E}[X])^2\right)\\
+  &= \alpha^2\operatorname{Var}(X).
+  \end{align*}
+
+\item 
+  To transform $\mathcal{N}(0,1) \rightarrow \mathcal{N}(3, 5)$,
+
+    You would have to multiply all of the outputs by $\sqrt{5}$ (which changes the variance), and then add 3 to shift the mean.
+
+\end{enumerate}
+
+\section*{Problem 4}
+  \[
+  P(T\mid Y)=\frac{P(Y\mid T)\,P(T)}{P(Y)}
+  \]
+
+  \[
+  P(Y)=P(Y\mid T)P(T)+P(Y\mid \neg T)P(\neg T)
+  \]
+
+  \[
+  P(Y)=\frac13\cdot\frac13+\frac23\cdot\frac23=\frac{1}{9}+\frac{4}{9}=\frac{5}{9}
+  \]
+
+  \[
+  P(T\mid Y)=\frac{\frac13\cdot\frac13}{\frac{5}{9}}
+  =\frac{\frac{1}{9}}{\frac{5}{9}}
+  =\frac{1}{5}
+  \]
+
+\section*{Problem 5}
+
+\section*{Problem 6}
+  \begin{align*}
+    P(D) &= 0.01,\\
+    P(T_+\mid D) &= 0.95,\\
+    P(T_-\mid \bar{D}) &= 0.90,\\
+    P(D\mid T_+) &= \frac{P(T_+\mid D)\cdot P(D)}{P(T_+)},\\
+    P(T_+) &= P(T_+\mid D)\cdot P(D) + P(T_+ \mid \bar D)\cdot P(\bar D),\\
+    P(T_+) &= 0.95\cdot 0.01 + (1-0.90)\cdot 0.99 = 0.1085,\\
+    P(D\mid T_+) &= \frac{0.0095}{0.1085} \approx 0.0876.
+  \end{align*}
+
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{output.png}
+    
+    \includegraphics[width=0.9\linewidth]{output2.png}
+  \end{center}
+
+\end{document}
