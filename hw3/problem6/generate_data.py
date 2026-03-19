@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-np.random.seed(998247)
+np.random.seed(9982472)
 
 # sample size
 N = 50
@@ -11,7 +11,7 @@ N = 50
 # true model parameters
 alpha_0 = -11.4
 beta_0  = 9.8
-sigma_0 = 2.0
+sigma_0 = 6.3
 
 # X-axis sampling
 X_mean  = 0.7
