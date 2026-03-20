@@ -32,7 +32,6 @@ parameters {
     // assume two parameters vectors, one for each condition.
     array[J] real v1;
     array[J] real v2;
-
     array[J] real<lower=0> a;
     array[J] real<lower=0, upper=1> beta;
     array[J] real<lower=0, upper=1> tau_raw;
@@ -48,24 +47,21 @@ transformed parameters {
 
 model {
     // Priors
-    v1 ~ normal(0,3);
-    v1 ~ normal(0,3);
-
-    a ~ normal(1.5,0.5)
+    v1 ~ normal(0, 3);
+    v2 ~ normal(0, 3);
+    a ~ normal(1.5, 0.5);
     beta ~ beta(2, 2);
     tau_raw ~ beta(2, 2);
 
     // Likelihood
     for (n in 1:N) {
-
-
         // Condition 1
         if (condition[n] == 1) {
             if (choice[n] == 1) {
                 target += wiener_lpdf(
-                    y[n] | a[id[n]], 
-                    tau[id[n]], 
-                    beta[id[n]], 
+                    y[n] | a[id[n]],
+                    tau[id[n]],
+                    beta[id[n]],
                     v1[id[n]]
                 );
             } else {
@@ -78,6 +74,7 @@ model {
             }
         }
 
+        // Condition 2
         if (condition[n] == 2) {
             if (choice[n] == 1) {
                 target += wiener_lpdf(
@@ -95,7 +92,5 @@ model {
                 );
             }
         }
-
-
     }
 }

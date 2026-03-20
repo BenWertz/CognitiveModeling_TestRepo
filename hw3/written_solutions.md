@@ -2,6 +2,7 @@
 1) The solution of the stochastic integral $\int_0^T \mu \,dW_t$ is $\mu(W_t-W_0)$ and is a random variable itself
 2) *The variance of a Wiener process with scale coefficient $\sigma=1$ at time $t$ is $t^2$*: <br>  **False: the variance is $t$.**
 3) The standard Drift-Diffusion Model (DDM) assumes that evidence about a dominant alternative accumulates in discrete chunks over time
+**False:** in the standard DDM, evidence builds up continuously over time, not in separate chunks.
 4) *The first passage time distribution has a closed-form probability density function, but its density can still be evaluated only numerically* (this sounds false, or at least like it should depend on the SDE being studied; for basic 1D brownian motion the FPT dist has a closed-form PDF and is easy to evaluate)
 5) *The Euler-Maruyama method can only be used to simulate linear stochastic systems* <br> **False (I think???)**
 6) *For any Bayesian analysis, the prior will always have a smaller variance than the posterior* <br> **False: the prior should have larger variance.**
@@ -12,11 +13,9 @@
 
 #### Problem 2: DIFFUSION MODEL EXPLORATIONS
 
-As extensively discussed in class, the drift-diffusion model (DDM) generates two response time (RT) distributions, one for each boundary (i.e., lower and upper boundaries). This exercise asks you to first explore a somewhat counterintuitive question about the basic DDM: What differences between the means of the two RT distributions does the the model predict?
+I simulated 2000 trials for each setting and changed one parameter at a time. For drift rate, I used 25 values from $0.5$ to $1.5$. The main thing I saw was that the upper-bound mean RT was always a little bigger than the lower-bound mean RT, but not by much (around $0.02$ to $0.19$ seconds). As $v$ increased, both mean RTs got smaller.
 
-To approach this question from a simulation-based perspective, you need to repeatedly solve the forward problem with different parameter configurations and collect the two summary statis- tics, namely, the two empirical means of the resulting RT distributions. First, choose a suitable configuration of the four parameters and vary only the drift rates within a reasonable range (e.g., v ∈ [0.5 − 1.5]) for a total of 25 different drift rates. Make sure that your parameterizations can generate a sufficient number of RTs for both distributions and you don’t end up with the process only reaching the upper boundary. Second, for each of your parameter configurations, generate N = 2000 synthetic observations and estimate the means of the two distributions. What do you observe regarding the mean difference? Describe and interpret your results. (4 points)
-
-In a similar spirit (keeping all parameters fixed and varying one), explore the effects of each of the parameters on the means and standard deviations of the simulated RT distributions, quantify and describe your results. (4 points)
+For the other parameters: bigger $a$ made RTs slower and more spread out, bigger $\beta$ made upper responses faster and lower responses slower, and bigger $\tau$ mostly just added the same amount of time to both. So overall it matched the usual DDM interpretation.
 
 
 
@@ -54,3 +53,9 @@ $$
 &\to \boxed{\mathrm{Var}[\theta]=\mathbb{E}[\mathrm{Var}[\theta|y]]+\mathrm{Var}[\mathbb{E}[\theta|y]]}
 \end{align*}
 $$
+
+#### PROBLEM 6: ESTIMATING THE DRIFT-DIFFUSION MODEL
+
+The parameter that best reflects difficulty is the **drift rate** $v$, because it captures the quality and speed of evidence accumulation.
+
+From the estimates, **condition 1** had the lower drift rates on average, so I interpreted **condition 1 as the high-interference (more difficult) field** and Condition 2 as thelow-interference / easier field.
