@@ -58,4 +58,4 @@ $$
 
 The parameter that best reflects difficulty is the **drift rate** $v$, because it captures the quality and speed of evidence accumulation.
 
-From the estimates, **condition 1** had the lower drift rates on average, so I interpreted **condition 1 as the high-interference (more difficult) field** and Condition 2 as thelow-interference / easier field.
+From the estimates, **condition 1** had the lower drift rates on average, so I interpreted **condition 1 as the high-interference (more difficult) field** and Condition 2 as the low-interference / easier field.

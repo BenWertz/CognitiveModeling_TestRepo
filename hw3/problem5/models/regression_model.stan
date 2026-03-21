@@ -23,3 +23,10 @@ model {
     //likelihood
     y ~ normal(alpha + beta * x, sigma);
 }
+
+generated quantities {
+   array[N] real y_pp;
+   for(n in 1:N){
+        y_pp[n]=normal_rng(alpha+beta*x[n],sigma);
+   }
+}
