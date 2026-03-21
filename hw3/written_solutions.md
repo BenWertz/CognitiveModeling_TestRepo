@@ -64,6 +64,8 @@ $$P(\mu|y_i)=\mathcal{N}\left(\tilde{\mu}=\frac{\mu_0/\sigma_0^2+y_i/\sigma^2}{1
 The posterior evalutated for the full sample $y$ is $$P(\mu|y)\propto\prod_{i=1}^NP(\mu|y_i)$$
 This is also a normal distribution, but it proved simpler to calculate the (log) probability density for each data point and multiply them, then normalize to get the final posterior PDF.
 
+Choosing an uninformative prior allowed the posterior to match the true model mean quite accurately for most random seeds (the random seed wasn't set for the python file (`problem4/normal-normal.py`) so each time the program is run a different posterior is generated). From testing, I confirmed that a more precise but less accurate prior kept the posterior from being accurate even for considerably large sample sizes.
+
 #### PROBLEM 5: Simple Bayesian Regression with Stan 
 We wrote a Python program `generate_data.py` which produces artificial data, sampled from a linear function with Gaussian intrinsic scatter (the parameters of which are stored in `true_model_params.json`). The script then saves this to a CSV, which is read by the Jupyter notebook `run_model.ipynb` implementing a Bayesian linear regression in Stan essentially the same as we did in class. For each sample size $N$, we produce summary statistics (the main ones of note being `ESS_bulk` and `R_hat`) which are saved to CSV, and the following diagnostic plots:
 - Pair plots and 1D histograms of $\alpha,\beta,\sigma^2$ as sampled from the posterior
@@ -76,7 +78,7 @@ We conducted two fits, one at N=20 and one at N=200. For both cases, the true mo
 $$\alpha_0=-11.4,\quad\beta_0=9.8\quad\sigma_0=6.6$$
 The problem description does not specify how x-coordinates are generated. Theses were generated from a normal distribution $x\sim\mathcal{N}(\mu=0.7,\sigma=0.8)$.
 
-For N=20 as well as N=200, the R-hat values for each paramater are close to 1, indicating good convergence, and in both cases the trace plots show good convence and the histograms show no unusual correlations between parameters. The Stan documentation suggests this statistic should always be below 1.05 for convergent data, which is promising. For the base model parameters $\alpha,\beta,\sigma^2$, the bulk ESS is around ~11000 for N=20 and around ~13000 for N=200, well above the recommended threshold of 100. The tail ESS values are roughly similar. These values are reasonably close to the
+For N=20 as well as N=200, the R-hat values for each paramater are close to 1, indicating good convergence, and in both cases the trace plots show good convence and the histograms show no unusual correlations between parameters. The Stan documentation suggests this statistic should always be below 1.05 for convergent data, which is promising. For the base model parameters $\alpha,\beta,\sigma^2$, the bulk ESS is around ~11000 for N=20 and around ~13000 for N=200, well above the recommended threshold of 100. The tail ESS values are roughly similar.
 
 ##### N=20:
 |        |      Mean |   StdDev |   ESS_bulk |   ESS_tail |   R_hat |
