@@ -5,7 +5,7 @@ import json
 
 np.random.seed(9982472)
 
-# sample size
+# sample size (change this value)
 N = 200
 
 # true model parameters
