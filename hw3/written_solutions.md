@@ -54,6 +54,17 @@ $$
 \end{align*}
 $$
 
+#### PROBLEM 4: NORMAL-NORMAL MODEL
+
+Let's say you are (for some reason) extremely interested in how fingernails grow. You could probably find papers studying human fingernail growth rates, but you're bizarrely passionate about this subject so you want to do it yourself. Your prior is that the growth rate is roughly $4.23\pm 1.6$ mm/month, but you can't be sure, so you round up 30 people with similar heights, clip one of their index fingernails, and round them up again 1 month later to measure how much they've grown. Because you're only measuring a few millimeters of growth and it's possible the growth rate probably isn't 100% consistent, you also assign a 1.6 mm/month uncertainty to your own measurements.
+
+I derived the posterior for normal prior and likelihood (I did this in a Desmos graph at https://www.desmos.com/calculator/u7tnirbome). The result is that, for a prior $p(\mu)\sim\mathcal{N}(\mu_0,\sigma_0)$ and a likelihood function $p(y|\mu)\sim\mathcal{N}(\mu,\sigma^2)$ is also a normal distribution:
+$$P(\mu|y_i)=\mathcal{N}\left(\tilde{\mu}=\frac{\mu_0/\sigma_0^2+y_i/\sigma^2}{1/\sigma_0^2+1/\sigma^2},\tilde{\sigma}=\sqrt{1/\sigma_0^2+1/\sigma^2}\right)$$
+
+The posterior evalutated for the full sample $y$ is $$P(\mu|y)\propto\prod_{i=1}^NP(\mu|y_i)$$
+This is also a normal distribution, but it proved simpler to calculate the (log) probability density for each data point and multiply them, then normalize to get the final posterior PDF.
+
+
 #### PROBLEM 6: ESTIMATING THE DRIFT-DIFFUSION MODEL
 
 The parameter that best reflects difficulty is the **drift rate** $v$, because it captures the quality and speed of evidence accumulation.

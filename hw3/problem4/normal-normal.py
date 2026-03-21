@@ -30,17 +30,21 @@ for i in range(len(Y)):
 Y_posterior_pdf=np.exp(Y_posterior_lpdf)
 # normalizing it numerically because it was getting too complicated
 Y_posterior_pdf/=np.trapz(Y_posterior_pdf,X)
+Y_posterior_mean=np.trapz(X*Y_posterior_pdf,X)
+Y_posterior_sd=np.sqrt(np.trapz(X**2*Y_posterior_pdf,X))
 
 plt.scatter(Y,np.zeros_like(Y),marker="x",c="k",alpha=0.3)
+plt.hist(Y,bins=6,color="k",alpha=0.3,density=True)
 
-plt.plot(X,Y_prior_pdf,"b-",label="prior")
-plt.plot(X,Y_posterior_pdf,"r-",label="posterior")
+plt.plot(X,Y_prior_pdf,"b-",label=f"prior\n$\mu_0={mu_0:.2f},\ \sigma_0={sigma_0:.2f}$")
+plt.plot(X,Y_posterior_pdf,"r-",label=f"posterior ({N} datapoints)\n$\\tilde{{\mu}}=({Y_posterior_mean:.2f}\pm{Y_posterior_sd:.2f})$")
 
 plt.axvline(mu_actual,color="k",ls="--",label=f"True mean:\n$\\mu={mu_actual}$")
 plt.legend()
 plt.minorticks_on()
-plt.xlabel("X")
+plt.xlabel("Fingernail growth rate (mm/month)")
 plt.ylabel("probability density")
 
+plt.ylim(bottom=-0.1)
 
 plt.show()
