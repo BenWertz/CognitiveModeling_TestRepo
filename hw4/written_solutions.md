@@ -29,3 +29,11 @@
     - **False**: Bayes factors are proportional to posterior odds by the inverse of the prior odds. $$\mathrm{BF_{12}}=\frac{p(\mathbf{y}|\mathcal{M}_{1})}{p(\mathbf{y}|\mathcal{M}_{2})}=\frac{p(\mathcal{M}_{1}|\mathbf{y})}{p(\mathcal{M}_{2}|\mathbf{y})}\left(  \frac{p(\mathcal{M}_{1})}{p(\mathcal{M}_{2})} \right)^{-1}$$
 10. You should always prefer information criteria to cross-validation in terms of estimation predictive performance.
 	- *not sure. sounds false?*
+
+## Problem 2
+
+## Problem 3
+
+## Problem 4
+
+## Problem 5
