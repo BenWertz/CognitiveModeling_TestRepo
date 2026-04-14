@@ -1,13 +1,12 @@
 data {
-    // Number of trials
     int<lower=1> N_old;
-    // Number of trials
     int<lower=1> N_new;
+    int<lower=1> N_trials;
 
     // Number of correct identifications of old words in test set
-    int<lower=0,upper=N_old> old_ans;
+    array[N_trials] int<lower=0,upper=N_old> old_ans;
     // Number of misidentified new words in test set
-    int<lower=0,upper=N_new> new_ans;
+    array[N_trials] int<lower=0,upper=N_new> new_ans;
 }
 
 parameters {
@@ -31,10 +30,12 @@ model {
     target += beta_lpdf(g | 1,1);
 
     //likelihood
-    //old-item likelihood
-    target += binomial_lpmf(old_ans | N_old, p_true_old);
-    //new-item likelihood
-    target += binomial_lpmf(new_ans | N_new, p_false_old);
+    for (n in 1:N_trials) {
+        //old-item likelihood
+        target += binomial_lpmf(old_ans[n] | N_old, p_true_old);
+        //new-item likelihood
+        target += binomial_lpmf(new_ans[n] | N_new, p_false_old);
+    }
 }
 
 generated quantities {

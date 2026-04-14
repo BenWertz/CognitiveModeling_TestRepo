@@ -1,0 +1,5 @@
+aid:NO, moscow:YES, cent:NO, cost:YES, officer:NO, scale:NO, ireland:NO, front:NO, grant:YES, union:YES, sugar:NO, crown:NO, valley:NO, bishop:YES, chapter:YES, brother:YES, sky:NO, code:NO, bank:NO, range:NO, 
+region:NO, robert:YES, port:NO, river:YES, chain:NO, review:YES, green:YES, flight:YES, song:NO, loan:YES, council:NO, proof:NO, usa:YES, edition:NO, delivery:NO, journal:NO, moon:NO, question:NO, making:NO, walter:YES, 
+floor:YES, density:NO, blood:YES, picture:YES, border:YES, travel:NO, religion:NO, action:NO, crown:NO, advice:NO, empire:NO, arrival:NO, interest:YES, increase:YES, cost:NO, april:YES, storage:YES, server:YES, patient:NO, ministry:NO, 
+slave:YES, gold:NO, evening:NO, sign:NO, copy:NO, program:YES, job:NO, instance:YES, book:NO, senate:YES, animal:NO, detail:YES, industry:YES, output:YES, choice:NO, capacity:NO, will:NO, love:NO, plot:YES, duration:NO, 
+contact:NO, notion:YES, color:NO, customer:YES, method:NO, silence:NO, server:NO, meat:YES, favor:YES, war:YES, sample:NO, treaty:NO, grant:NO, amount:NO, base:YES, province:YES, house:NO, doctor:NO, key:NO, image:NO,
